@@ -1,11 +1,17 @@
 package com.inyavic.inyavicsage.distresscallsmanager;
 
-import android.support.v7.app.AppCompatActivity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 
 public class AddDistressCallManagerActivity extends AppCompatActivity {
+
+    EditText usernameInput;
+    EditText passwordInput;
+    MyDBHelper dbHelper = new MyDBHelper(this, null, null, 2);
+    Intent i;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -14,7 +20,16 @@ public class AddDistressCallManagerActivity extends AppCompatActivity {
     }
 
     public void addButtonClicked(View view) {
-        EditText usernameInput = findViewById(R.id.username_input);
-        EditText passwordInput = findViewById(R.id.password_input);
+        usernameInput = findViewById(R.id.username_input);
+        passwordInput = findViewById(R.id.password_input);
+
+        DistressCallsManagers DCM = new DistressCallsManagers(usernameInput.getText().toString(),
+                passwordInput.getText().toString());
+        dbHelper.addDistressCallsManager(DCM);
+
+        i = new Intent(this, DistressCallManagersListActivity.class);
+        i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(i);
+        finish();
     }
 }

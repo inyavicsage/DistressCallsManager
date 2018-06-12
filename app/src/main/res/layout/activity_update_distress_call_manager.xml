@@ -23,7 +23,7 @@
             android:id="@+id/username"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Username:"
+            android:text="@string/username_label"
             android:textSize="15sp" />
 
         <EditText
@@ -31,9 +31,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Enter username here"
+            android:hint="@string/username_input_hint"
             android:inputType="textPersonName"
-            android:text="XXXXXXXXXX" />
+            android:text="@string/username_input_text" />
 
     </TableRow>
 
@@ -50,7 +50,7 @@
             android:id="@+id/password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Password:"
+            android:text="@string/password_label"
             android:textSize="15sp" />
 
         <EditText
@@ -58,7 +58,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Enter password here"
+            android:hint="@string/password_input_hint"
             android:inputType="textPassword" />
 
     </TableRow>
@@ -78,7 +78,7 @@
             android:id="@+id/password_check"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="change password" />
+            android:text="@string/password_check_text" />
 
     </TableRow>
 
@@ -98,7 +98,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="updateButtonClicked"
-            android:text="Update" />
+            android:text="@string/update_button_text" />
 
     </TableRow>
 
