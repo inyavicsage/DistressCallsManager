@@ -33,7 +33,7 @@
             android:ems="10"
             android:hint="@string/username_input_hint"
             android:inputType="textPersonName"
-            android:text="@string/username_input_text" />
+            android:text="@string/username_input" />
 
     </TableRow>
 

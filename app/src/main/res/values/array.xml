@@ -1,0 +1,8 @@
+<resources>
+    <string-array name="spinnerItems">
+        <item>Theft</item>
+        <item>Murder</item>
+        <item>Accident</item>
+        <item>Fire Outbreak</item>
+    </string-array>
+</resources>

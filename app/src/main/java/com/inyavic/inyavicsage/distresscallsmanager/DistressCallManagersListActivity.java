@@ -17,6 +17,7 @@ public class DistressCallManagersListActivity extends AppCompatActivity implemen
 
     TableLayout table;
     Button add;
+    Bundle intentData;
     Intent i;
     MyDBHelper dbHelper = new MyDBHelper(this, null, null, 2);
 
@@ -25,6 +26,7 @@ public class DistressCallManagersListActivity extends AppCompatActivity implemen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_distress_call_managers_list);
 
+        intentData = getIntent().getExtras();
         table = findViewById(R.id.table);
         ArrayList<DistressCallsManagers> DCMs = dbHelper.getDistressCallsManagers();
 
@@ -33,7 +35,7 @@ public class DistressCallManagersListActivity extends AppCompatActivity implemen
             row.setLayoutParams(new TableLayout.LayoutParams(
                     TableLayout.LayoutParams.MATCH_PARENT, TableLayout.LayoutParams.WRAP_CONTENT
             ));
-            row.setPadding(getPxVal(2), getPxVal(2), getPxVal(2), getPxVal(2));
+            row.setPadding(getPxVal(5), getPxVal(2), getPxVal(5), getPxVal(2));
 
             TextView username = new TextView(this);
             username.setLayoutParams(new TableRow.LayoutParams(
@@ -78,13 +80,17 @@ public class DistressCallManagersListActivity extends AppCompatActivity implemen
 
     public void addButtonClicked(View v) {
         i = new Intent(this, AddDistressCallManagerActivity.class);
+        i.putExtra("username", intentData.getString("username"));
         startActivity(i);
     }
 
     @Override
     public void onClick(View v) {
+        String username = intentData.getString("username");
+
         if (v.getContentDescription().toString().equals("update")) {
             i = new Intent(this, UpdateDistressCallManagerActivity.class);
+            i.putExtra("username", username);
             i.putExtra("id", v.getTag().toString());
             startActivity(i);
         } else if (v.getContentDescription().toString().equals("delete")) {

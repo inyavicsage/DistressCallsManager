@@ -29,7 +29,7 @@ public class MyDBHelper extends SQLiteOpenHelper {
     private static final String DCI_COLUMN_REC_CALL_PATH = "rec_call_path";
     private static final String DCI_COLUMN_DATETIME_RECEIVED = "datetime_received";
 
-    public MyDBHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
+    protected MyDBHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(context, DATABASE_NAME, factory, DATABASE_VERSION);
     }
 
@@ -80,7 +80,7 @@ public class MyDBHelper extends SQLiteOpenHelper {
         }
 
         SQLiteDatabase db = getWritableDatabase();
-        db.update(DCM_TABLE_NAME, values, "_id = " + DCM_ID, null);
+        db.update(DCM_TABLE_NAME, values, DCM_COLUMN_ID + " = " + DCM_ID, null);
         db.close();
     }
 
@@ -92,8 +92,8 @@ public class MyDBHelper extends SQLiteOpenHelper {
 
     public ArrayList<DistressCallsManagers> getDistressCallsManagers() {
         ArrayList<DistressCallsManagers> DCM = new ArrayList<>();
-
         SQLiteDatabase db = getWritableDatabase();
+
         String query = "SELECT * FROM " + DCM_TABLE_NAME;
         Cursor c = db.rawQuery(query, null);
 
@@ -116,8 +116,8 @@ public class MyDBHelper extends SQLiteOpenHelper {
 
     public String getDistressCallsManagerUsername(String DCM_ID) {
         String DCMUsername = null;
-
         SQLiteDatabase db = getWritableDatabase();
+
         String query = "SELECT " + DCM_COLUMN_USERNAME + " FROM " + DCM_TABLE_NAME
                 + " WHERE " + DCM_COLUMN_ID + "=\"" + DCM_ID + "\";";
         Cursor c = db.rawQuery(query, null);
@@ -133,8 +133,8 @@ public class MyDBHelper extends SQLiteOpenHelper {
 
     public boolean isLoginDetailsCorrect(String username, String password) {
         boolean isLoginDetailsCorrect = false;
-
         SQLiteDatabase db = getWritableDatabase();
+
         String query = "SELECT " + DCM_COLUMN_ID + " FROM " + DCM_TABLE_NAME
                 + " WHERE " + DCM_COLUMN_USERNAME + "=\"" + username
                 + "\" AND " + DCM_COLUMN_PASSWORD + "=\"" + password + "\";";
@@ -149,27 +149,72 @@ public class MyDBHelper extends SQLiteOpenHelper {
         return isLoginDetailsCorrect;
     }
 
-    public ArrayList<DistressCallsManagers> getDistressCallsInfo() {
-        ArrayList<DistressCallsManagers> DCM = new ArrayList<>();
+    public void addDistressCallsInfo(DistressCallsInfo DCI) {
+        ContentValues values = new ContentValues();
+        values.put(DCI_COLUMN_TYPE, DCI.getType());
+        values.put(DCI_COLUMN_PRIORITY, DCI.getPriority());
+        values.put(DCI_COLUMN_CALLER_NAME, DCI.getCallerName());
+        values.put(DCI_COLUMN_CALLER_PHONE_NUM, DCI.getCallerPhoneNum());
+        values.put(DCI_COLUMN_CALLER_LOC, DCI.getCallerLoc());
+        values.put(DCI_COLUMN_DESCRIPTION, DCI.getDescription());
+        values.put(DCI_COLUMN_REC_CALL_PATH, DCI.getRecCallPath());
+        values.put(DCI_COLUMN_DATETIME_RECEIVED, DCI.getDatetimeReceived());
 
         SQLiteDatabase db = getWritableDatabase();
-        String query = "SELECT * FROM " + DCM_TABLE_NAME;
+        db.insert(DCI_TABLE_NAME, null, values);
+        db.close();
+    }
+
+    public void updateDistressCallsInfo(int DCM_ID, HashMap<String, String> updateMap) {
+        ContentValues values = new ContentValues();
+
+        for (Map.Entry<String, String> entry : updateMap.entrySet()) {
+            values.put(entry.getKey(), entry.getValue());
+        }
+
+        SQLiteDatabase db = getWritableDatabase();
+        db.update(DCI_TABLE_NAME, values, DCI_COLUMN_ID + " = " + DCM_ID, null);
+        db.close();
+    }
+
+    public void deleteDistressCallsInfo(int DCI_ID) {
+        SQLiteDatabase db = getWritableDatabase();
+        db.execSQL("DELETE FROM " + DCI_TABLE_NAME + " WHERE " + DCI_COLUMN_ID + "=\"" + DCI_ID + "\";");
+        db.close();
+    }
+
+    public ArrayList<DistressCallsInfo> getDistressCallsInfo(int DCI_ID) {
+        ArrayList<DistressCallsInfo> DCI = new ArrayList<>();
+        SQLiteDatabase db = getWritableDatabase();
+
+        String query;
+        if (DCI_ID == 0) {
+            query = "SELECT * FROM " + DCI_TABLE_NAME;
+        } else {
+            query = "SELECT * FROM " + DCI_TABLE_NAME + " WHERE " + DCM_COLUMN_ID + "=\"" + DCI_ID + "\";";
+        }
         Cursor c = db.rawQuery(query, null);
 
-        DistressCallsManagers DCM2;
+        DistressCallsInfo DCI2;
 
         if (c.moveToFirst()) {
             do {
-                DCM2 = new DistressCallsManagers();
-                DCM2.set_id(c.getInt(c.getColumnIndex(DCM_COLUMN_ID)));
-                DCM2.setUsername(c.getString(c.getColumnIndex(DCM_COLUMN_USERNAME)));
-                DCM2.setPassword(c.getString(c.getColumnIndex(DCM_COLUMN_PASSWORD)));
-                DCM.add(DCM2);
+                DCI2 = new DistressCallsInfo();
+                DCI2.set_id(c.getInt(c.getColumnIndex(DCI_COLUMN_ID)));
+                DCI2.setType(c.getString(c.getColumnIndex(DCI_COLUMN_TYPE)));
+                DCI2.setPriority(c.getString(c.getColumnIndex(DCI_COLUMN_PRIORITY)));
+                DCI2.setCallerName(c.getString(c.getColumnIndex(DCI_COLUMN_CALLER_NAME)));
+                DCI2.setCallerPhoneNum(c.getString(c.getColumnIndex(DCI_COLUMN_CALLER_PHONE_NUM)));
+                DCI2.setCallerLoc(c.getString(c.getColumnIndex(DCI_COLUMN_CALLER_LOC)));
+                DCI2.setDescription(c.getString(c.getColumnIndex(DCI_COLUMN_DESCRIPTION)));
+                DCI2.setRecCallPath(c.getString(c.getColumnIndex(DCI_COLUMN_REC_CALL_PATH)));
+                DCI2.setDatetimeReceived(c.getString(c.getColumnIndex(DCI_COLUMN_DATETIME_RECEIVED)));
+                DCI.add(DCI2);
             } while (c.moveToNext());
         }
 
         c.close();
         db.close();
-        return DCM;
+        return DCI;
     }
 }

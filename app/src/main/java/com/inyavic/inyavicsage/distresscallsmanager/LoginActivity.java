@@ -23,16 +23,19 @@ public class LoginActivity extends AppCompatActivity {
         usernameInput = findViewById(R.id.username_input);
         passwordInput = findViewById(R.id.password_input);
 
-        if (usernameInput.getText().toString().equals("admin") && passwordInput.getText().toString().equals("adminpass")) {
+        String username = usernameInput.getText().toString();
+        String password = passwordInput.getText().toString();
+
+        if (username.equals("admin") && password.equals("adminpass")) {
             i = new Intent(this, DistressCallManagersListActivity.class);
-            i.putExtra("username", usernameInput.getText().toString());
+            i.putExtra("username", username);
             i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(i);
             finish();
-        } else if (dbHelper.isLoginDetailsCorrect(
-                usernameInput.getText().toString(), passwordInput.getText().toString())) {
+        } else if (dbHelper.isLoginDetailsCorrect(username, password)) {
             i = new Intent(this, DistressCallInfoListActivity.class);
-            i.putExtra("username", usernameInput.getText().toString());
+            i.putExtra("username", username);
+            i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(i);
             finish();
         }

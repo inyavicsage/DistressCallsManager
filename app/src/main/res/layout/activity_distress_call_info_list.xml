@@ -8,6 +8,24 @@
     android:stretchColumns="*">
 
     <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp">
+
+        <TextView />
+
+        <TextView />
+
+        <Button
+            android:id="@+id/add_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="addButtonClicked"
+            android:text="@string/add_button_text" />
+
+    </TableRow>
+
+    <TableRow
         android:id="@+id/row1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -20,8 +38,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:text="Caller Name"
-            android:textSize="20sp"
+            android:text="@string/caller_name_text"
+            android:textSize="18sp"
             android:textStyle="bold" />
 
         <TextView
@@ -29,8 +47,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:text="Priority"
-            android:textSize="20sp"
+            android:text="@string/priority_text"
+            android:textSize="18sp"
             android:textStyle="bold" />
 
         <TextView
@@ -38,144 +56,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:text="Date/Time"
-            android:textSize="20sp"
+            android:text="@string/datetime_text"
+            android:textSize="18sp"
             android:textStyle="bold" />
-
-    </TableRow>
-
-    <TableRow
-        android:id="@+id/row2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="2dp">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="XXXXXXXXXX"
-            android:textSize="18sp" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="X"
-            android:textSize="18sp" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="XXXXXXXXXX"
-            android:textSize="18sp" />
-
-    </TableRow>
-
-    <TableRow
-        android:id="@+id/row3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="2dp">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="XXXXXXXXXX"
-            android:textSize="18sp" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="X"
-            android:textSize="18sp" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="XXXXXXXXXX"
-            android:textSize="18sp" />
-
-    </TableRow>
-
-    <TableRow
-        android:id="@+id/row4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="2dp">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="XXXXXXXXXX"
-            android:textSize="18sp" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="X"
-            android:textSize="18sp" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="XXXXXXXXXX"
-            android:textSize="18sp" />
-
-    </TableRow>
-
-    <TableRow
-        android:id="@+id/row5"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="2dp">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="XXXXXXXXXX"
-            android:textSize="18sp" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="X"
-            android:textSize="18sp" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="XXXXXXXXXX"
-            android:textSize="18sp" />
-
-    </TableRow>
-
-    <TableRow
-        android:id="@+id/row6"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="2dp">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="XXXXXXXXXX"
-            android:textSize="18sp" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="X"
-            android:textSize="18sp" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="XXXXXXXXXX"
-            android:textSize="18sp" />
 
     </TableRow>
 

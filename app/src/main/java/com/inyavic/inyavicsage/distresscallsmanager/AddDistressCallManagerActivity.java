@@ -11,12 +11,15 @@ public class AddDistressCallManagerActivity extends AppCompatActivity {
     EditText usernameInput;
     EditText passwordInput;
     MyDBHelper dbHelper = new MyDBHelper(this, null, null, 2);
+    Bundle intentData;
     Intent i;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_distress_call_manager);
+
+        intentData = getIntent().getExtras();
     }
 
     public void addButtonClicked(View view) {
@@ -28,6 +31,7 @@ public class AddDistressCallManagerActivity extends AppCompatActivity {
         dbHelper.addDistressCallsManager(DCM);
 
         i = new Intent(this, DistressCallManagersListActivity.class);
+        i.putExtra("username", intentData.getString("username"));
         i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(i);
         finish();

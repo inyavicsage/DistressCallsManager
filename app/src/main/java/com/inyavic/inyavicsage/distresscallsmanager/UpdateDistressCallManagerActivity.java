@@ -23,9 +23,9 @@ public class UpdateDistressCallManagerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_distress_call_manager);
 
+        intentData = getIntent().getExtras();
         usernameInput = findViewById(R.id.username_input);
 
-        intentData = getIntent().getExtras();
         String id = intentData.getString("id");
         String username = dbHelper.getDistressCallsManagerUsername(id);
         usernameInput.setText(username);
@@ -43,11 +43,11 @@ public class UpdateDistressCallManagerActivity extends AppCompatActivity {
             updateMap.put("password", passwordInput.getText().toString());
         }
 
-        intentData = getIntent().getExtras();
         String id = intentData.getString("id");
         dbHelper.updateDistressCallsManager(id, updateMap);
 
         i = new Intent(this, DistressCallManagersListActivity.class);
+        i.putExtra("username", intentData.getString("username"));
         i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(i);
         finish();
