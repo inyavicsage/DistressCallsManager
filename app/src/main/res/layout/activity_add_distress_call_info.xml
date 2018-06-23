@@ -1,218 +1,224 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/table"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_margin="20dp"
-    android:shrinkColumns="*"
-    android:stretchColumns="*">
+    android:layout_height="match_parent">
 
-    <TableRow
-        android:id="@+id/row1"
+    <TableLayout
+        android:id="@+id/table"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="5dp">
+        android:layout_margin="20dp"
+        android:shrinkColumns="*"
+        android:stretchColumns="*">
 
-        <TextView
-            android:id="@+id/type"
+        <TableRow
+            android:id="@+id/row1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:text="@string/type_label"
-            android:textSize="15sp" />
+            android:padding="5dp">
 
-        <Spinner
-            android:id="@+id/type_input"
+            <TextView
+                android:id="@+id/type"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="@string/type_label"
+                android:textSize="15sp" />
+
+            <Spinner
+                android:id="@+id/type_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:entries="@array/spinnerItems" />
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/row2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:entries="@array/spinnerItems" />
+            android:padding="5dp">
 
-    </TableRow>
+            <TextView
+                android:id="@+id/priority"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="@string/priority_label"
+                android:textSize="15sp" />
 
-    <TableRow
-        android:id="@+id/row2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="5dp">
+            <TextView
+                android:id="@+id/priority_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="6dp"
+                android:text="@string/priority_input"
+                android:textSize="15sp" />
 
-        <TextView
-            android:id="@+id/priority"
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/row3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:text="@string/priority_label"
-            android:textSize="15sp" />
+            android:padding="5dp">
 
-        <TextView
-            android:id="@+id/priority_input"
+            <TextView
+                android:id="@+id/caller_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="@string/caller_name_label"
+                android:textSize="15sp" />
+
+            <EditText
+                android:id="@+id/caller_name_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/caller_name_input_hint"
+                android:inputType="textPersonName" />
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/row4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingLeft="6dp"
-            android:text="@string/priority_input"
-            android:textSize="15sp" />
+            android:padding="5dp">
 
-    </TableRow>
+            <TextView
+                android:id="@+id/caller_phone_num"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="@string/caller_phone_num_label"
+                android:textSize="15sp" />
 
-    <TableRow
-        android:id="@+id/row3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="5dp">
+            <TextView
+                android:id="@+id/caller_phone_num_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="6dp"
+                android:text="@string/caller_phone_num_input"
+                android:textSize="15sp" />
 
-        <TextView
-            android:id="@+id/caller_name"
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/row5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:text="@string/caller_name_label"
-            android:textSize="15sp" />
+            android:padding="5dp">
 
-        <EditText
-            android:id="@+id/caller_name_input"
+            <TextView
+                android:id="@+id/caller_loc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="@string/caller_loc_label"
+                android:textSize="15sp" />
+
+            <EditText
+                android:id="@+id/caller_loc_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/caller_loc_input_hint"
+                android:inputType="text" />
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/row6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/caller_name_input_hint"
-            android:inputType="textPersonName" />
+            android:padding="5dp">
 
-    </TableRow>
+            <TextView
+                android:id="@+id/description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="@string/description_label"
+                android:textSize="15sp" />
 
-    <TableRow
-        android:id="@+id/row4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="5dp">
+            <EditText
+                android:id="@+id/description_input"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:ems="10"
+                android:gravity="top"
+                android:hint="@string/description_input_hint"
+                android:inputType="textMultiLine" />
 
-        <TextView
-            android:id="@+id/caller_phone_num"
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/row7"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:text="@string/caller_phone_num_label"
-            android:textSize="15sp" />
+            android:padding="5dp">
 
-        <TextView
-            android:id="@+id/caller_phone_num_input"
+            <TextView
+                android:id="@+id/rec_call_path"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="@string/rec_call_path_label"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/rec_call_path_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="6dp"
+                android:text="@string/rec_call_path_input"
+                android:textSize="15sp" />
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/row8"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingLeft="6dp"
-            android:text="@string/caller_phone_num_input"
-            android:textSize="15sp" />
+            android:padding="5dp">
 
-    </TableRow>
+            <TextView
+                android:id="@+id/datetime_received"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="@string/datetime_received_label"
+                android:textSize="15sp" />
 
-    <TableRow
-        android:id="@+id/row5"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="5dp">
+            <TextView
+                android:id="@+id/datetime_received_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="6dp"
+                android:text="@string/datetime_received_input"
+                android:textSize="15sp" />
 
-        <TextView
-            android:id="@+id/caller_loc"
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/row9"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:text="@string/caller_loc_label"
-            android:textSize="15sp" />
+            android:padding="5dp">
 
-        <EditText
-            android:id="@+id/caller_loc_input"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/caller_loc_input_hint"
-            android:inputType="text" />
+            <TextView />
 
-    </TableRow>
+            <Button
+                android:id="@+id/add_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="addButtonClicked"
+                android:text="@string/add_button_text" />
 
-    <TableRow
-        android:id="@+id/row6"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="5dp">
+        </TableRow>
 
-        <TextView
-            android:id="@+id/description"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:text="@string/description_label"
-            android:textSize="15sp" />
+    </TableLayout>
 
-        <EditText
-            android:id="@+id/description_input"
-            android:layout_width="match_parent"
-            android:layout_height="120dp"
-            android:ems="10"
-            android:gravity="top"
-            android:hint="@string/description_input_hint"
-            android:inputType="textMultiLine" />
-
-    </TableRow>
-
-    <TableRow
-        android:id="@+id/row7"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="5dp">
-
-        <TextView
-            android:id="@+id/rec_call_path"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:text="@string/rec_call_path_label"
-            android:textSize="15sp" />
-
-        <TextView
-            android:id="@+id/rec_call_path_input"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingLeft="6dp"
-            android:text="@string/rec_call_path_input"
-            android:textSize="15sp" />
-
-    </TableRow>
-
-    <TableRow
-        android:id="@+id/row8"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="5dp">
-
-        <TextView
-            android:id="@+id/datetime_received"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:text="@string/datetime_received_label"
-            android:textSize="15sp" />
-
-        <TextView
-            android:id="@+id/datetime_received_input"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingLeft="6dp"
-            android:text="@string/datetime_received_input"
-            android:textSize="15sp" />
-
-    </TableRow>
-
-    <TableRow
-        android:id="@+id/row9"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="5dp">
-
-        <TextView />
-
-        <Button
-            android:id="@+id/add_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="addButtonClicked"
-            android:text="@string/add_button_text" />
-
-    </TableRow>
-
-</TableLayout>
+</ScrollView>

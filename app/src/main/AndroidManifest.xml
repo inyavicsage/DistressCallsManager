@@ -22,7 +22,12 @@
         <activity android:name=".UpdateDistressCallInfoActivity" />
         <activity android:name=".DistressCallInfoListActivity" />
         <activity android:name=".DistressCallInfoActivity" />
-        <activity android:name=".DistressCallManagersListActivity"></activity>
+        <activity android:name=".DistressCallManagersListActivity" />
+
+        <receiver
+            android:name=".CallStateBroadcastReceiver"
+            android:enabled="true"
+            android:exported="true"></receiver>
     </application>
 
 </manifest>

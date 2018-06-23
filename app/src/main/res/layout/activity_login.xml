@@ -1,85 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/table"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginBottom="20dp"
-    android:layout_marginLeft="20dp"
-    android:layout_marginRight="20dp"
-    android:layout_marginTop="60dp"
-    android:shrinkColumns="*"
-    android:stretchColumns="*">
+    android:layout_height="match_parent">
 
-    <TableRow
-        android:id="@+id/row1"
+    <TableLayout
+        android:id="@+id/table"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingBottom="10dp"
-        android:paddingLeft="5dp"
-        android:paddingRight="5dp"
-        android:paddingTop="10dp">
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="60dp"
+        android:shrinkColumns="*"
+        android:stretchColumns="*">
 
-        <TextView
-            android:id="@+id/username"
+        <TableRow
+            android:id="@+id/row1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/username_label"
-            android:textSize="15sp" />
+            android:paddingBottom="10dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:paddingTop="10dp">
 
-        <EditText
-            android:id="@+id/username_input"
+            <TextView
+                android:id="@+id/username"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/username_label"
+                android:textSize="15sp" />
+
+            <EditText
+                android:id="@+id/username_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/username_input_hint"
+                android:inputType="textPersonName" />
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/row2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/username_input_hint"
-            android:inputType="textPersonName" />
+            android:paddingBottom="10dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:paddingTop="10dp">
 
-    </TableRow>
+            <TextView
+                android:id="@+id/password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/password_label"
+                android:textSize="15sp" />
 
-    <TableRow
-        android:id="@+id/row2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingBottom="10dp"
-        android:paddingLeft="5dp"
-        android:paddingRight="5dp"
-        android:paddingTop="10dp">
+            <EditText
+                android:id="@+id/password_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/password_input_hint"
+                android:inputType="textPassword" />
 
-        <TextView
-            android:id="@+id/password"
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/row3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/password_label"
-            android:textSize="15sp" />
+            android:paddingBottom="10dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:paddingTop="10dp">
 
-        <EditText
-            android:id="@+id/password_input"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/password_input_hint"
-            android:inputType="textPassword" />
+            <TextView />
 
-    </TableRow>
+            <Button
+                android:id="@+id/login_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="loginButtonClicked"
+                android:text="@string/login_button_text" />
 
-    <TableRow
-        android:id="@+id/row3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingBottom="10dp"
-        android:paddingLeft="5dp"
-        android:paddingRight="5dp"
-        android:paddingTop="10dp">
+        </TableRow>
 
-        <TextView />
+    </TableLayout>
 
-        <Button
-            android:id="@+id/login_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="loginButtonClicked"
-            android:text="@string/login_button_text" />
-
-    </TableRow>
-
-</TableLayout>
+</ScrollView>

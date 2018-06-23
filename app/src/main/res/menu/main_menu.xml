@@ -2,14 +2,14 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/dci_list"
+        android:id="@+id/dcm_list"
         android:orderInCategory="1"
-        android:title="@string/view_distress_call_info_list_text" />
+        android:title="@string/dcm_list_text" />
 
     <item
-        android:id="@+id/dcm_list"
+        android:id="@+id/dci_list"
         android:orderInCategory="2"
-        android:title="@string/view_distress_call_managers_list_text" />
+        android:title="@string/dci_list_text" />
 
     <item
         android:id="@+id/logout"

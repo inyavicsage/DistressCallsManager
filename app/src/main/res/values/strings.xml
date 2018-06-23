@@ -32,9 +32,9 @@
     <string name="caller_loc_input">XXXXXXXXXX</string>
     <string name="description_input">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</string>
     <string name="logout_text">Logout</string>
-    <string name="view_distress_call_info_list_text">View Distress Call Info List</string>
-    <string name="view_distress_call_managers_list_text">View Distress Call Managers List</string>
     <string name="delete_button_text">Delete</string>
     <string name="rec_call_label">Recorded Call:</string>
     <string name="id_label">ID:</string>
+    <string name="dci_list_text">DCI List</string>
+    <string name="dcm_list_text">DCM List</string>
 </resources>

@@ -1,65 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/table"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_margin="20dp"
-    android:shrinkColumns="*"
-    android:stretchColumns="*">
+    android:layout_height="match_parent">
 
-    <TableRow
+    <TableLayout
+        android:id="@+id/table"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="5dp">
+        android:layout_margin="20dp"
+        android:shrinkColumns="*"
+        android:stretchColumns="*">
 
-        <TextView />
-
-        <TextView />
-
-        <Button
-            android:id="@+id/add_button"
+        <TableRow
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="addButtonClicked"
-            android:text="@string/add_button_text" />
+            android:padding="5dp">
 
-    </TableRow>
+            <TextView />
 
-    <TableRow
-        android:id="@+id/row1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:background="#b8cbcc"
-        android:padding="5dp">
+            <TextView />
 
-        <TextView
-            android:id="@+id/caller_name"
+            <Button
+                android:id="@+id/add_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="addButtonClicked"
+                android:text="@string/add_button_text" />
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/row1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:text="@string/caller_name_text"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:layout_marginBottom="10dp"
+            android:background="#b8cbcc"
+            android:padding="5dp">
 
-        <TextView
-            android:id="@+id/priority"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:text="@string/priority_text"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            <TextView
+                android:id="@+id/caller_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="@string/caller_name_text"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/datetime"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:text="@string/datetime_text"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            <TextView
+                android:id="@+id/priority"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="@string/priority_text"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
-    </TableRow>
+            <TextView
+                android:id="@+id/datetime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="@string/datetime_text"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
-</TableLayout>
+        </TableRow>
+
+    </TableLayout>
+
+</ScrollView>
