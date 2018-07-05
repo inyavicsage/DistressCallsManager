@@ -16,7 +16,6 @@ public class AddDistressCallInfoActivity extends AppCompatActivity {
     TextView callerPhoneNumInput;
     EditText callerLocInput;
     EditText descriptionInput;
-    TextView recCallPathInput;
     TextView datetimeReceivedInput;
     MyDBHelper dbHelper = new MyDBHelper(this, null, null, 2);
     Bundle intentData;
@@ -31,13 +30,11 @@ public class AddDistressCallInfoActivity extends AppCompatActivity {
         typeInput = findViewById(R.id.type_input);
         priorityInput = findViewById(R.id.priority_input);
         callerPhoneNumInput = findViewById(R.id.caller_phone_num_input);
-        recCallPathInput = findViewById(R.id.rec_call_path_input);
         datetimeReceivedInput = findViewById(R.id.datetime_received_input);
 
         priorityInput.setText("1");
-        callerPhoneNumInput.setText("08037253789");
-        recCallPathInput.setText("/SDCard/rec_calls/call001.mp3");
-        datetimeReceivedInput.setText("27/05/2018 8:55 am");
+        callerPhoneNumInput.setText(intentData.getString("caller_phone_num"));
+        datetimeReceivedInput.setText(intentData.getString("datetime_received"));
     }
 
     public void addButtonClicked(View view) {
@@ -47,13 +44,12 @@ public class AddDistressCallInfoActivity extends AppCompatActivity {
         callerPhoneNumInput = findViewById(R.id.caller_phone_num_input);
         callerLocInput = findViewById(R.id.caller_loc_input);
         descriptionInput = findViewById(R.id.description_input);
-        recCallPathInput = findViewById(R.id.rec_call_path_input);
         datetimeReceivedInput = findViewById(R.id.datetime_received_input);
 
-        DistressCallsInfo DCI = new DistressCallsInfo("Accident",
+        DistressCallsInfo DCI = new DistressCallsInfo(typeInput.getSelectedItem().toString(),
                 priorityInput.getText().toString(), callerNameInput.getText().toString(),
                 callerPhoneNumInput.getText().toString(), callerLocInput.getText().toString(),
-                descriptionInput.getText().toString(), recCallPathInput.getText().toString(),
+                descriptionInput.getText().toString(), "recCallPathInput.getText().toString()",
                 datetimeReceivedInput.getText().toString());
         dbHelper.addDistressCallsInfo(DCI);
 

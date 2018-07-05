@@ -157,29 +157,29 @@
 
         </TableRow>
 
-        <TableRow
-            android:id="@+id/row7"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="5dp">
+        <!--<TableRow-->
+        <!--android:id="@+id/row7"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:padding="5dp">-->
 
-            <TextView
-                android:id="@+id/rec_call_path"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:text="@string/rec_call_path_label"
-                android:textSize="15sp" />
+        <!--<TextView-->
+        <!--android:id="@+id/rec_call_path"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_gravity="center_vertical"-->
+        <!--android:text="@string/rec_call_path_label"-->
+        <!--android:textSize="15sp" />-->
 
-            <TextView
-                android:id="@+id/rec_call_path_input"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="6dp"
-                android:text="@string/rec_call_path_input"
-                android:textSize="15sp" />
+        <!--<TextView-->
+        <!--android:id="@+id/rec_call_path_input"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:paddingLeft="6dp"-->
+        <!--android:text="@string/rec_call_path_input"-->
+        <!--android:textSize="15sp" />-->
 
-        </TableRow>
+        <!--</TableRow>-->
 
         <TableRow
             android:id="@+id/row8"

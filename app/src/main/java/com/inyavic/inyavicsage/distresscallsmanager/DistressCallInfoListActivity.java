@@ -3,6 +3,7 @@ package com.inyavic.inyavicsage.distresscallsmanager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -69,7 +70,7 @@ public class DistressCallInfoListActivity extends AppCompatActivity implements V
             row.setLayoutParams(new TableLayout.LayoutParams(
                     TableLayout.LayoutParams.MATCH_PARENT, TableLayout.LayoutParams.WRAP_CONTENT
             ));
-            row.setPadding(getPxVal(2), getPxVal(2), getPxVal(2), getPxVal(2));
+            //row.setPadding(getPxVal(2), getPxVal(2), getPxVal(2), getPxVal(2));
             row.setOnClickListener(this);
 
             TextView callerName = new TextView(this);
@@ -79,7 +80,7 @@ public class DistressCallInfoListActivity extends AppCompatActivity implements V
 
             TextView priority = new TextView(this);
             TableRow.LayoutParams priorityLayoutParams = rowLayoutParams;
-            //priorityLayoutParams.gravity = Gravity.CENTER_HORIZONTAL;
+            priorityLayoutParams.gravity = Gravity.CENTER_HORIZONTAL;
             priority.setLayoutParams(priorityLayoutParams);
             priority.setText(DCIs.get(i).getPriority());
             priority.setTextSize(18);
@@ -103,11 +104,11 @@ public class DistressCallInfoListActivity extends AppCompatActivity implements V
         return ((int) (dp * scale + 0.5f));
     }
 
-    public void addButtonClicked(View v) {
-        i = new Intent(this, AddDistressCallInfoActivity.class);
-        i.putExtra("username", intentData.getString("username"));
-        startActivity(i);
-    }
+//    public void addButtonClicked(View v) {
+//        i = new Intent(this, AddDistressCallInfoActivity.class);
+//        i.putExtra("username", intentData.getString("username"));
+//        startActivity(i);
+//    }
 
     @Override
     public void onClick(View v) {

@@ -19,8 +19,8 @@ public class UpdateDistressCallInfoActivity extends AppCompatActivity {
     TextView callerPhoneNumInput;
     EditText callerLocInput;
     EditText descriptionInput;
-    TextView recCallPathInput;
     TextView datetimeReceivedInput;
+    int DCI_ID;
     Bundle intentData;
     Intent i;
     MyDBHelper dbHelper = new MyDBHelper(this, null, null, 2);
@@ -37,11 +37,10 @@ public class UpdateDistressCallInfoActivity extends AppCompatActivity {
         callerPhoneNumInput = findViewById(R.id.caller_phone_num_input);
         callerLocInput = findViewById(R.id.caller_loc_input);
         descriptionInput = findViewById(R.id.description_input);
-        recCallPathInput = findViewById(R.id.rec_call_path_input);
         datetimeReceivedInput = findViewById(R.id.datetime_received_input);
 
-        int id = intentData.getInt("id");
-        ArrayList<DistressCallsInfo> DCI = dbHelper.getDistressCallsInfo(id);
+        DCI_ID = intentData.getInt("id");
+        ArrayList<DistressCallsInfo> DCI = dbHelper.getDistressCallsInfo(DCI_ID);
 
         typeInput.setSelection(2);
         priorityInput.setText(DCI.get(0).getPriority());
@@ -49,7 +48,6 @@ public class UpdateDistressCallInfoActivity extends AppCompatActivity {
         callerPhoneNumInput.setText(DCI.get(0).getCallerPhoneNum());
         callerLocInput.setText(DCI.get(0).getCallerLoc());
         descriptionInput.setText(DCI.get(0).getDescription());
-        recCallPathInput.setText(DCI.get(0).getRecCallPath());
         datetimeReceivedInput.setText(DCI.get(0).getDatetimeReceived());
     }
 
@@ -60,7 +58,6 @@ public class UpdateDistressCallInfoActivity extends AppCompatActivity {
         callerPhoneNumInput = findViewById(R.id.caller_phone_num_input);
         callerLocInput = findViewById(R.id.caller_loc_input);
         descriptionInput = findViewById(R.id.description_input);
-        recCallPathInput = findViewById(R.id.rec_call_path_input);
         datetimeReceivedInput = findViewById(R.id.datetime_received_input);
 
         HashMap<String, String> updateMap = new HashMap<>();
@@ -70,15 +67,14 @@ public class UpdateDistressCallInfoActivity extends AppCompatActivity {
         updateMap.put("caller_phone_num", callerPhoneNumInput.getText().toString());
         updateMap.put("caller_loc", callerLocInput.getText().toString());
         updateMap.put("description", descriptionInput.getText().toString());
-        updateMap.put("rec_call_path", recCallPathInput.getText().toString());
+        updateMap.put("rec_call_path", "recCallPathInput.getText().toString()");
         updateMap.put("datetime_received", datetimeReceivedInput.getText().toString());
 
-        int id = intentData.getInt("id");
-        dbHelper.updateDistressCallsInfo(id, updateMap);
+        dbHelper.updateDistressCallsInfo(DCI_ID, updateMap);
 
         i = new Intent(this, DistressCallInfoActivity.class);
         i.putExtra("username", intentData.getString("username"));
-        i.putExtra("id", id);
+        i.putExtra("id", DCI_ID);
         i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(i);
         finish();
